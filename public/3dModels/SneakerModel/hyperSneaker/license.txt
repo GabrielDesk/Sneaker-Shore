@@ -1,0 +1,11 @@
+Model Information:
+* title:	Hyper Sneaker
+* source:	https://sketchfab.com/3d-models/hyper-sneaker-0a11092e4d47496a99e9b42aaeb8f91f
+* author:	Mareon (https://sketchfab.com/mareoncz)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Hyper Sneaker" (https://sketchfab.com/3d-models/hyper-sneaker-0a11092e4d47496a99e9b42aaeb8f91f) by Mareon (https://sketchfab.com/mareoncz) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

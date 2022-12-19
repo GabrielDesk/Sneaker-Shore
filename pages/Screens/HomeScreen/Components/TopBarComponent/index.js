@@ -1,4 +1,4 @@
-import React, { useState, useEffect, SetStateAction } from "react";
+import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { Button, Grid } from "@mui/material";
 import COLORS from "../../../../../public/constants/COLORS";

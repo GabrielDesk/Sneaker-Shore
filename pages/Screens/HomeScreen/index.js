@@ -70,7 +70,7 @@ function HomeScreen() {
               justifyContent: "space-between",
             }}
           >
-            <TopBar />
+            {/* <TopBar /> */}
           </Grid>
 
           <div

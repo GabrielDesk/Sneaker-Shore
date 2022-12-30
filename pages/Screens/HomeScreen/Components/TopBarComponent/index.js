@@ -2,22 +2,21 @@ import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { Button, Grid } from "@mui/material";
 import COLORS from "../../../../../public/constants/COLORS";
-import styleCss from "./styles";
 import { useMobileListener } from "../../../../../utils/GetScreenSize";
 import { NavBarCategories } from "../../../../../utils/objects/NavBarCategories";
 
 const Size = useMobileListener();
 
-const {
-  TabTopBarContainer,
-  ImageContainer,
-  ImageLogo,
-  NavItemsContainer,
-  ManCategoriesTextStyle,
-  WomenCategoriesTextStyle,
-  KidsCategoriesTextStyle,
-  CustomizeCategoriesTextStyle,
-} = styleCss;
+// const {
+//   TabTopBarContainer,
+//   ImageContainer,
+//   ImageLogo,
+//   NavItemsContainer,
+//   ManCategoriesTextStyle,
+//   WomenCategoriesTextStyle,
+//   KidsCategoriesTextStyle,
+//   CustomizeCategoriesTextStyle,
+// } = styleCss;
 
 const TopBar = () => {
   const [ButtonOneColor, setButtonOneColor] = useState(COLORS.GREY);
@@ -105,15 +104,22 @@ const TopBar = () => {
   return (
     <>
       <Grid container sm={12} md={6} lg={6}>
-        <TabTopBarContainer>
-          <ImageContainer>
-            <ImageLogo
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            // paddingLeft: 10,
+          }}
+        >
+          <div style={{ marginRight: 40 }}>
+            <img
+              style={{ height: 80, width: 80 }}
               src="/images/svgs/SneakersShoreLogo.svg"
-              alt="Clean World"
+              alt="Clea nWorld"
             />
-          </ImageContainer>
+          </div>
           {RowList()}
-        </TabTopBarContainer>
+        </div>
       </Grid>
     </>
   );
@@ -128,7 +134,7 @@ const styles = {
     fontSize: "20px",
     fontWeight: 600,
     color: COLORS.GREY,
-    backgroundColor: COLORS.WHITE_SMOKE,
+    backgroundColor: "transparent",
     border: "none",
   },
   ButtonStyleCliked: {
@@ -137,13 +143,13 @@ const styles = {
     fontSize: "20px",
     fontWeight: 600,
     color: COLORS.BLACK,
-    backgroundColor: COLORS.WHITE_SMOKE,
+    backgroundColor: "transparent",
     border: "none",
   },
   NavItemsContainer: {
     display: "flex",
     flexDirection: "row",
-    paddingInline: 25,
+    paddingInline: 10,
     alignItems: "center",
   },
 };

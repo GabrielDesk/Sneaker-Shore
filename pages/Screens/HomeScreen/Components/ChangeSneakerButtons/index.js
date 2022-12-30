@@ -3,7 +3,7 @@ import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import COLORS from "../../../../../public/constants/COLORS";
 import { ChangeSneaker } from "../../../../../utils/objects/ChangeSneakerButton";
 
-const ChangeButtoSneaker = () => {
+const ChangeButtonSneaker = () => {
   const [SelectedButton, setSelectedButton] = useState(0);
 
   return (
@@ -49,7 +49,7 @@ const ChangeButtoSneaker = () => {
   );
 };
 
-export default ChangeButtoSneaker;
+export default ChangeButtonSneaker;
 
 const styles = {
   ChangeSneakerButtonDefault: {
@@ -58,16 +58,18 @@ const styles = {
     border: "solid",
     borderColor: COLORS.CLEAR_GREY,
     borderRadius: 20,
-    width: 70,
+    width: 90,
     height: 43,
+    alignItems: "center",
     cursor: "pointer",
   },
   ChangeSneakerButtonClicked: {
     backgroundColor: COLORS.BLACK,
     borderWidth: "1px",
     borderRadius: 20,
-    width: 70,
+    width: 90,
     height: 43,
+    alignItems: "center",
     cursor: "pointer",
   },
 

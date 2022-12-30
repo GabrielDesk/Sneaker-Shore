@@ -23,6 +23,69 @@ a {
     width: 100%; */
 }
 
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (min-width: 959px) {
+    h1,
+    h2 {
+        font-size: 70px;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    h1,
+    h2 {
+        font-size: 60px;
+    }
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    h1,
+    h2 {
+        font-size: 60px;
+    }
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+    h1,
+    h2 {
+        font-size: 34px;
+    }
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    h1,
+    h2 {
+        font-size: 34px;
+    }
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+    p {
+        font-size: 24px;
+    }
+}
+
+body::-webkit-scrollbar {
+    width: 15px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: #f6f6f6; /* color of the tracking area */
+}
+body::-webkit-scrollbar-corner {
+    background: #f6f6f6; /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #bebebe; /* color of the scroll thumb */
+    border-radius: 10px; /* roundness of the scroll thumb */
+    border: 5px solid #f6f6f6; /* creates padding around scroll thumb */
+}
+
 /* box-sizing: border-box; */
 
 /* @media (prefers-color-scheme: dark) {

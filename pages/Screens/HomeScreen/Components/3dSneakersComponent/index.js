@@ -1,6 +1,11 @@
 import React, { Suspense } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
-import { Center, Environment, OrbitControls } from "@react-three/drei";
+import {
+  Center,
+  Environment,
+  OrbitControls,
+  OrthographicCamera,
+} from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 const Model = () => {
@@ -11,13 +16,14 @@ const Model = () => {
 
   return (
     <>
-      <mesh visible scale={2} userData={{ hello: "world" }}>
-        <primitive
-          object={gltf.scene}
-          scale={0.07}
-          position={[-0.1, -0.33, 0.5]}
-          rotation={[-Math.PI / 19, 21.7, -Math.PI / 15]}
-        />
+      <mesh
+        visible
+        scale={0.7}
+        // scale={0.07}
+        rotation={[Math.SQRT2 / 91, Math.SQRT2 / 0.3, -Math.SQRT2 / 3.5]}
+        userData={{ hello: "world" }}
+      >
+        <primitive object={gltf.scene} scale={0.06} />
       </mesh>
     </>
   );
@@ -31,19 +37,26 @@ const SneakerComponent = () => {
           shadows
           gl={{ logarithmicDepthBuffer: true, antialias: false }}
           dpr={[1, 2.5]}
-          camera={{ position: [-0.8, 1.2, 3], fov: 115 }}
+          //   camera={{ , fov: 115 }}
+          camera={{
+            // position: [-0.2, 0.5, 1],
+            // position: [0.6, 0.4, 2],
+            position: [0.8, 0.1, 0.2],
+            near: 0.1,
+            far: 50,
+            aspect: 16 / 9,
+            fov: 100,
+          }}
           style={{
-            display: "flex",
             alignContent: "center",
             justifyContent: "center",
             height: "100%",
             width: "100%",
-            // backgroundColor: "red",
           }}
         >
           <ambientLight intensity={0.1} />
           <spotLight
-            intensity={0.1}
+            intensity={0.2}
             angle={0.6}
             penumbra={0.0}
             position={[10, 10, 10]}
@@ -54,10 +67,12 @@ const SneakerComponent = () => {
             <Environment preset="city" />
           </Suspense>
           <OrbitControls
-            enablePan={false}
+            // enablePan={true}
             enableZoom={false}
-            minPolarAngle={Math.PI / 2.6}
-            maxPolarAngle={Math.PI / 2.6}
+            minDistance={0.1}
+
+            // minPolarAngle={1}
+            // maxPolarAngle={2.5}
           />
         </Canvas>
       </div>
@@ -71,8 +86,9 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     right: 1,
-    height: "100%",
-    width: "100%",
-    // backgroundColor: '#000',
+    height: "30em",
+    width: "30em",
+
+    // backgroundColor: "#000",
   },
 };

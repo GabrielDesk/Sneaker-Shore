@@ -8,12 +8,12 @@ import {
 import { Grid, Typography } from "@mui/material";
 import SneakerComponent from "./Components/3dSneakersComponent";
 import TopBar from "./Components/TopBarComponent";
-import { HyperSneaker } from "./Components/3dSneakersComponent/HyperSneaker";
+// import { HyperSneaker } from "./Components/3dSneakersComponent/HyperSneaker";
 import COLORS from "../../../public/constants/COLORS";
 import { useMobileListener } from "../../../utils/GetScreenSize";
 import ChooseSizeButton from "./Components/ChooseSizeButton";
 import { SizeOfSneaker } from "../../../utils/objects/sizeSneakers";
-import ChangeButtoSneaker from "./Components/ChangeSneakerButtons";
+import ChangeButtonSneaker from "./Components/ChangeSneakerButtons";
 
 const Size = useMobileListener();
 
@@ -30,8 +30,6 @@ function HomeScreen() {
   return (
     <Grid
       container
-      direction={"row"}
-      columns={2}
       sm={12}
       md={12}
       lg={12}
@@ -39,186 +37,224 @@ function HomeScreen() {
         backgroundColor: "#f6f6f6",
         width: "100vw",
         height: "100vh",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
       <Grid
         container
+        direction={"row"}
+        columns={2}
         sm={12}
         md={6}
         lg={6}
         style={{
-          padding: "3% 3% 0% 3%",
+          backgroundColor: "#f6f6f6",
+          borderRadius: 50,
+          margin: 40,
+          background: "linear-gradient(-290deg, #F6F6F6,#e7e7e7 )",
+          boxShadow: "20px 20px 60px #bebebe, -20px -20px 60px #ffffff",
+          padding: "2% 1% 0% 1%",
         }}
       >
-        <div
-          style={{
-            height: "85%",
-            padding: "5%",
-            width: "100%",
-            borderRadius: "5% 0% 0% 5%",
-
-            boxShadow: `5px 10px 10px #e7e7e7`,
-          }}
+        <Grid
+          container
+          sm={12}
+          md={6}
+          lg={6}
+          style={
+            {
+              // padding: "3% 3% 0% 3%",
+            }
+          }
         >
-          <Grid
-            container
-            sm={12}
-            md={6}
-            lg={6}
-            style={{
-              width: "100%",
-              justifyContent: "space-between",
-            }}
-          >
-            {/* <TopBar /> */}
-          </Grid>
-
           <div
             style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
+              //   height: "85%",
+              padding: "10px 35px 50px 35px",
+              width: "100%",
+              // borderRadius: "5% 0% 0% 5%",
             }}
           >
-            <div
+            <Grid
+              container
+              sm={12}
+              md={6}
+              lg={6}
               style={{
-                width: validation.vWidth > 480 ? "55%" : "100%",
+                width: "100%",
+                justifyContent: "space-between",
               }}
             >
-              <input
-                placeholder="Search for your sneaker"
-                type="text"
-                style={{
-                  border: "none",
-                  borderRadius: "20px 0px 0px 20px",
-                  lineHeight: 0,
-                  fontSize: 18,
-                  fontWeight: "600",
-                  paddingLeft: "10%",
-                  width: "100%",
-                  height: "55px",
-                }}
-              />
-            </div>
+              <TopBar />
+            </Grid>
 
             <div
               style={{
                 display: "flex",
-                height: "60px",
-                width: "60px",
-                borderRadius: "15px",
+                flexDirection: "row",
                 alignItems: "center",
-                justifyContent: "center",
-                marginLeft: "-1%",
-                background: COLORS.BLACK,
               }}
             >
-              <FaSlidersH
-                size={22}
-                color={COLORS.WHITE_SMOKE}
+              <div
                 style={{
-                  alignSelf: "center",
-                  justifySelf: "center",
+                  width: validation.vWidth > 480 ? "55%" : "100%",
                 }}
-              />
-            </div>
-          </div>
-
-          <Grid container columns={2} sm={12} md={12} lg={12} style={{}}>
-            <Grid container sm={12} md={8} lg={8} style={{ paddingTop: 10 }}>
-              <Typography
-                variant={"h2"}
-                sm={4}
-                md={4}
-                lg={4}
-                style={{ fontWeight: 600 }}
               >
-                Comfort & <br /> Magic Awaits Everyday.
-              </Typography>
-            </Grid>
+                <input
+                  placeholder="Search for your sneaker"
+                  type="text"
+                  style={{
+                    border: "none",
+                    borderRadius: "20px 0px 0px 20px",
+                    lineHeight: 0,
+                    fontSize: 18,
+                    fontWeight: "600",
+                    paddingLeft: "10%",
+                    width: "100%",
+                    height: "55px",
+                  }}
+                />
+              </div>
 
-            <Grid container sm={12} md={3.64} lg={3.64} style={{}}>
               <div
                 style={{
                   display: "flex",
-                  alignItems: "end",
-                  width: "100%",
-                  justifyContent: "end",
-                  gap: 10,
+                  height: "60px",
+                  width: "60px",
+                  borderRadius: "15px",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginLeft: "-1%",
+                  background: COLORS.BLACK,
                 }}
               >
-                <ChangeButtoSneaker />
+                <FaSlidersH
+                  size={22}
+                  color={COLORS.WHITE_SMOKE}
+                  style={{
+                    alignSelf: "center",
+                    justifySelf: "center",
+                  }}
+                />
               </div>
-            </Grid>
-          </Grid>
+            </div>
 
-          <Grid
-            container
-            sm={12}
-            md={6}
-            lg={6}
-            style={{
-              margin: "5% 0%",
-            }}
-          >
-            <Typography
-              variant={"h7"}
-              style={{ fontSize: 36, fontWeight: 600 }}
+            <Grid
+              container
+              sm={12}
+              md={12}
+              lg={12}
+              style={{ height: 220, width: "100%" }}
             >
-              $179.00
-            </Typography>
-          </Grid>
-
-          <Grid container sm={12} columns={1} md={6} lg={6} style={{}}>
-            <>
-              <div
+              <Grid
+                container
+                sm={12}
+                md={12}
+                lg={12}
                 style={{
-                  width: "100%",
+                  position: "relative",
                 }}
               >
+                <h1
+                  //   variant={"h1"}
+                  //   sm={12}
+                  //   md={6}
+                  //   lg={6}
+                  style={{
+                    fontWeight: 600,
+                    // fontSize: `${1 + "2vh"}`,
+                    lineHeight: 1.1,
+                  }}
+                >
+                  Comfort & <br /> Magic Awaits. Everyday.
+                </h1>
+
                 <div
                   style={{
-                    marginLeft: 2,
+                    display: "flex",
+                    alignItems: "center",
+                    //   width: "100%",
+                    gap: 10,
+                    // backgroundColor: "blue",
+                    position: "absolute",
+                    right: 4,
+                    bottom: 10,
                   }}
                 >
-                  <Typography
-                    variant="h7"
+                  <ChangeButtonSneaker />
+                </div>
+              </Grid>
+            </Grid>
+
+            <Grid
+              container
+              sm={12}
+              md={6}
+              lg={6}
+              style={{
+                // margin: "5% 0%",
+                padding: "9% 0px 10px 0px",
+              }}
+            >
+              <Typography
+                variant={"h7"}
+                style={{ fontSize: 36, fontWeight: 600 }}
+              >
+                $179.00
+              </Typography>
+            </Grid>
+
+            <Grid container sm={12} columns={1} md={6} lg={6} style={{}}>
+              <>
+                <div
+                  style={{
+                    width: "100%",
+                  }}
+                >
+                  <div
                     style={{
-                      fontSize: 18,
-                      fontWeight: 700,
+                      marginLeft: 2,
                     }}
                   >
-                    Size
-                  </Typography>
-                </div>
-
-                <Grid
-                  container
-                  columns={2}
-                  sm={12}
-                  md={12}
-                  lg={12}
-                  style={{
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <Grid container sm={12} md={6} lg={6} style={{}}>
-                    <div
+                    <Typography
+                      variant="h7"
                       style={{
-                        display: "flex",
-                        width: "100%",
-                        marginTop: 15,
+                        fontSize: 18,
+                        fontWeight: 700,
                       }}
                     >
-                      <ChooseSizeButton />
-                    </div>
-                  </Grid>
+                      Size
+                    </Typography>
+                  </div>
 
-                  <Grid container sm={12} md={3.64} lg={3.64} style={{}}>
+                  <Grid
+                    container
+                    columns={2}
+                    sm={12}
+                    md={12}
+                    lg={12}
+                    style={{
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      padding: "10px 0px 10px 0px",
+                    }}
+                  >
+                    <Grid container sm={12} md={6} lg={6} style={{}}>
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "100%",
+                          alignItems: "center",
+                        }}
+                      >
+                        <ChooseSizeButton />
+                      </div>
+                    </Grid>
+
                     <div
                       style={{
                         display: "flex",
-                        width: "100%",
                         justifyContent: "end",
                         justifyItems: "center",
                       }}
@@ -226,7 +262,6 @@ function HomeScreen() {
                       <div
                         style={{
                           width: "100%",
-                          marginTop: 15,
                         }}
                       >
                         <button type="submit" style={styles.AddToCartButton}>
@@ -251,36 +286,64 @@ function HomeScreen() {
                       </div>
                     </div>
                   </Grid>
-                </Grid>
-              </div>
-            </>
-          </Grid>
-        </div>
-      </Grid>
+                </div>
+              </>
+            </Grid>
+          </div>
+        </Grid>
 
-      <Grid
-        container
-        sm={12}
-        md={6}
-        lg={6}
-        style={{
-          padding: "3% 3% 0% 0%",
-        }}
-      >
-        <div
+        <Grid
+          container
+          sm={12}
+          md={6}
+          lg={6}
           style={{
-            height: "95%",
-            width: "100%",
-            borderRadius: "0% 5% 5% 0%",
-            alignContent: "center",
-            background: "linear-gradient(-290deg, #F6F6F6,#e7e7e7 )",
-
-            justifyContent: "center",
-            boxShadow: ` 5px 10px 10px #e7e7e7`,
+            // padding: "3% 3% 0% 0%",
+            // background: "blue",
+            alignItems: "center",
           }}
         >
-          <SneakerComponent />
-        </div>
+          <div
+            style={{
+              height: "95%",
+              width: "100%",
+              borderRadius: "50px 50px 50px 50px",
+              // alignItems: "center",
+              // justifyItems: "center",
+              background: "linear-gradient(145deg, #f0f0f0, #cacaca)",
+              boxShadow: "20px 20px 60px #bebebe, -20px -20px 60px #ffffff",
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                height: "60%",
+                width: "50%",
+                borderRadius: "50%",
+                alignSelf: "center",
+                background: "linear-gradient(145deg, #cacaca, #f0f0f0)",
+                boxShadow: "35px 35px 70px #bebebe, -35px -35px 70px #ffffff",
+                position: "absolute",
+                // zIndex: 1,
+                top: "16%",
+                left: "28%",
+              }}
+            ></div>
+            <div
+              style={{
+                position: "absolute",
+                zIndex: 1,
+                top: "18%",
+                // background: "blue",
+                left: "19%",
+                height: "100%",
+                width: "100%",
+              }}
+            >
+              <SneakerComponent />
+            </div>
+          </div>
+        </Grid>
       </Grid>
     </Grid>
   );

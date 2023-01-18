@@ -3,8 +3,21 @@ import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import COLORS from "../../../../../public/constants/COLORS";
 import { ChangeSneaker } from "../../../../../utils/objects/ChangeSneakerButton";
 
-const ChangeButtonSneaker = () => {
+const ChangeButtonSneaker = ({
+  onPrimaryClick = () => {},
+  onSecondaryClick = () => {},
+}) => {
   const [SelectedButton, setSelectedButton] = useState(0);
+
+  function HandleClick(item) {
+    if (item.Id === 1) {
+      onPrimaryClick();
+    } else {
+      onSecondaryClick();
+    }
+
+    setSelectedButton(SelectedButton === item.Id ? 0 : item.Id);
+  }
 
   return (
     <>
@@ -13,9 +26,7 @@ const ChangeButtonSneaker = () => {
           <div>
             <button
               key={item.Id}
-              onClick={() =>
-                setSelectedButton(SelectedButton === item.Id ? 0 : item.Id)
-              }
+              onClick={() => HandleClick(item)}
               style={
                 SelectedButton === item.Id
                   ? styles.ChangeSneakerButtonClicked

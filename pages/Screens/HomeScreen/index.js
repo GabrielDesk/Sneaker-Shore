@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   FaLongArrowAltLeft,
   FaLongArrowAltRight,
@@ -14,10 +14,20 @@ import { useMobileListener } from "../../../utils/GetScreenSize";
 import ChooseSizeButton from "./Components/ChooseSizeButton";
 import { SizeOfSneaker } from "../../../utils/objects/sizeSneakers";
 import ChangeButtonSneaker from "./Components/ChangeSneakerButtons";
+import ColorPickerComponent from "./Components/ColorPicker";
+import {
+  InfoSneakers,
+  SneakerColors,
+} from "../../../utils/objects/InfoSneakers";
 
 const Size = useMobileListener();
 
-function HomeScreen() {
+const HomeScreen = () => {
+  const [SneakerId, setSneakerId] = useState(1);
+  const [SneakerInfo, setSneakerInfo] = useState(
+    InfoSneakers.find((f) => f.Id === SneakerId)
+  );
+
   const validation = {
     vHeight: Size && Size.Height,
     vWidth: Size && Size.Width,
@@ -25,6 +35,30 @@ function HomeScreen() {
 
   function changeBackground(e) {
     e.target.style.background = "red";
+  }
+
+  function HandleSneakerColors() {
+    InfoSneakers.map((color) => {
+      console.log(color);
+    });
+  }
+
+  useEffect(() => {
+    if (SneakerId) {
+      setSneakerInfo(InfoSneakers.find((f) => f.Id === SneakerId));
+    }
+  }, [SneakerId]);
+
+  function HandlePrimaryClick() {
+    if (SneakerId <= 2) {
+      setSneakerId((old) => old + 1);
+    }
+  }
+
+  function HandleSecondaryClick() {
+    if (SneakerId > 0) {
+      setSneakerId((old) => old - 1);
+    }
   }
 
   return (
@@ -182,7 +216,10 @@ function HomeScreen() {
                     bottom: 10,
                   }}
                 >
-                  <ChangeButtonSneaker />
+                  <ChangeButtonSneaker
+                    onPrimaryClick={HandleSecondaryClick}
+                    onSecondaryClick={HandlePrimaryClick}
+                  />
                 </div>
               </Grid>
             </Grid>
@@ -328,7 +365,7 @@ function HomeScreen() {
                 top: "16%",
                 left: "28%",
               }}
-            ></div>
+            />
             <div
               style={{
                 position: "absolute",
@@ -336,18 +373,41 @@ function HomeScreen() {
                 top: "18%",
                 // background: "blue",
                 left: "19%",
-                height: "100%",
-                width: "100%",
+                height: "70%",
+                width: "60%",
               }}
             >
-              <SneakerComponent />
+              <SneakerComponent Loader={SneakerInfo.Sneaker3D} />
             </div>
+
+            <Grid container sm={12} md={6} lg={6} style={{}}>
+              <div
+                style={{
+                  position: "absolute",
+                  zIndex: 1,
+                  bottom: "5%",
+                  left: "19%",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    width: "100%",
+                    alignItems: "center",
+                  }}
+                >
+                  {SneakerInfo?.Colors.map((item) => (
+                    <ColorPickerComponent Id={1} SneakerColor={item.Color} />
+                  ))}
+                </div>
+              </div>
+            </Grid>
           </div>
         </Grid>
       </Grid>
     </Grid>
   );
-}
+};
 export default HomeScreen;
 
 const styles = {

@@ -8,19 +8,17 @@ import {
 } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-const Model = () => {
-  const gltf = useLoader(
-    GLTFLoader,
-    "3dModels/SneakerModel/hyperSneaker/scene.gltf"
-  );
+const Model = ({
+  ItemLoader = "3dModels/SneakerModel/hyperSneaker/scene.gltf",
+}) => {
+  const gltf = useLoader(GLTFLoader, ItemLoader);
 
   return (
     <>
       <mesh
         visible
         scale={0.7}
-        // scale={0.07}
-        rotation={[Math.SQRT2 / 91, Math.SQRT2 / 0.3, -Math.SQRT2 / 3.5]}
+        rotation={[Math.SQRT2 / 11, Math.SQRT2 / 0.3, -Math.SQRT2 / 5.5]}
         userData={{ hello: "world" }}
       >
         <primitive object={gltf.scene} scale={0.06} />
@@ -29,7 +27,9 @@ const Model = () => {
   );
 };
 
-const SneakerComponent = () => {
+const SneakerComponent = ({
+  Loader = "3dModels/SneakerModel/hyperSneaker/scene.gltf",
+}) => {
   return (
     <>
       <div style={styles.SneakerConatiner}>
@@ -63,7 +63,7 @@ const SneakerComponent = () => {
             castShadow
           />
           <Suspense fallback={null}>
-            <Model />
+            <Model ItemLoader={Loader} />
             <Environment preset="city" />
           </Suspense>
           <OrbitControls

@@ -5,7 +5,7 @@ import COLORS from "../../../../../public/constants/COLORS";
 import { useMobileListener } from "../../../../../utils/GetScreenSize";
 import { NavBarCategories } from "../../../../../utils/objects/NavBarCategories";
 
-const Size = useMobileListener();
+// const Size = useMobileListener();
 
 // const {
 //   TabTopBarContainer,
@@ -67,38 +67,38 @@ const TopBar = () => {
   }
 
   const RowList = () => {
-    if (Size && Size.Width > 480) {
-      return NavBarCategories.map((item) => (
-        <div style={styles.NavItemsContainer}>
-          <button
-            style={
-              SelectedCategory === item.Id
-                ? styles.ButtonStyleCliked
-                : styles.ButtonStyleDefault
-            }
-            key={item.Id}
-            buttonColor={ButtonOneColor}
-            onClick={() =>
-              setSelectedCategory(SelectedCategory === item.Id ? 0 : item.Id)
-            }
-          >
-            {item.Title}
-          </button>
-        </div>
-      ));
-    } else {
-      return (
-        <button
-          style={{
-            alignSelf: "center",
-            border: "none",
-            backgroundColor: "transparent",
-          }}
-        >
-          <FaBars size={25} />
-        </button>
-      );
-    }
+    // if (Size && Size.Width > 480) {
+    //   return NavBarCategories.map((item) => (
+    //     <div style={styles.NavItemsContainer}>
+    //       <button
+    //         style={
+    //           SelectedCategory === item.Id
+    //             ? styles.ButtonStyleCliked
+    //             : styles.ButtonStyleDefault
+    //         }
+    //         key={item.Id}
+    //         buttonColor={ButtonOneColor}
+    //         onClick={() =>
+    //           setSelectedCategory(SelectedCategory === item.Id ? 0 : item.Id)
+    //         }
+    //       >
+    //         {item.Title}
+    //       </button>
+    //     </div>
+    //   ));
+    // } else {
+    return (
+      <button
+        style={{
+          alignSelf: "center",
+          border: "none",
+          backgroundColor: "transparent",
+        }}
+      >
+        <FaBars size={25} />
+      </button>
+    );
+    // }
   };
 
   return (

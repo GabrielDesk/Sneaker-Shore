@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  FaLongArrowAltLeft,
-  FaLongArrowAltRight,
-  FaShoppingBag,
-  FaSlidersH,
-} from "react-icons/fa";
+import { FaShoppingBag, FaSlidersH } from "react-icons/fa";
 import { Grid, Typography } from "@mui/material";
 import SneakerComponent from "./Components/3dSneakersComponent";
 import TopBar from "./Components/TopBarComponent";
@@ -20,16 +15,20 @@ import {
   SneakerColors,
 } from "../../../utils/objects/InfoSneakers";
 
-const Size = useMobileListener();
-
 const HomeScreen = () => {
   const [SneakerId, setSneakerId] = useState(1);
   const [SneakerInfo, setSneakerInfo] = useState(
     InfoSneakers.find((f) => f.Id === SneakerId)
   );
+  const [Size, setSize] = useState(0);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const validation = {
-    vHeight: Size && Size.Height,
+    // vHeight: Size && Size.Height,
     vWidth: Size && Size.Width,
   };
 
@@ -47,7 +46,9 @@ const HomeScreen = () => {
     if (SneakerId) {
       setSneakerInfo(InfoSneakers.find((f) => f.Id === SneakerId));
     }
-  }, [SneakerId]);
+
+    // setSize(useMobileListener());
+  }, [SneakerId, isClient]);
 
   function HandlePrimaryClick() {
     if (SneakerId <= 2) {
@@ -132,8 +133,10 @@ const HomeScreen = () => {
             >
               <div
                 style={{
-                  width: validation.vWidth > 480 ? "55%" : "100%",
+                  //   width: validation.vWidth > 480 ? "55%" : "100%",
+                  width: "100%",
                 }}
+                uppressHydrationWarning
               >
                 <input
                   placeholder="Search for your sneaker"
@@ -242,11 +245,20 @@ const HomeScreen = () => {
               </Typography>
             </Grid>
 
-            <Grid container sm={12} columns={1} md={6} lg={6} style={{}}>
+            <Grid
+              container
+              sm={12}
+              columns={1}
+              md={6}
+              lg={6}
+              style={{}}
+              gap={10}
+            >
               <>
                 <div
                   style={{
                     width: "100%",
+                    gap: 10,
                   }}
                 >
                   <div
@@ -345,8 +357,8 @@ const HomeScreen = () => {
               height: "95%",
               width: "100%",
               borderRadius: "50px 50px 50px 50px",
-              // alignItems: "center",
-              // justifyItems: "center",
+              //   alignItems: "center",
+              //   justifyItems: "center",
               background: "linear-gradient(145deg, #f0f0f0, #cacaca)",
               boxShadow: "20px 20px 60px #bebebe, -20px -20px 60px #ffffff",
               position: "relative",
@@ -366,18 +378,20 @@ const HomeScreen = () => {
                 left: "28%",
               }}
             />
+
             <div
               style={{
                 position: "absolute",
                 zIndex: 1,
-                top: "18%",
                 // background: "blue",
-                left: "19%",
-                height: "70%",
-                width: "60%",
+                top: "-10%",
+                alignItems: "center",
+                justifyContent: "center",
+                left: "30%",
+                // right: "10%",
               }}
             >
-              <SneakerComponent Loader={SneakerInfo.Sneaker3D} />
+              <SneakerComponent Loader={SneakerInfo?.Sneaker3D} />
             </div>
 
             <Grid container sm={12} md={6} lg={6} style={{}}>

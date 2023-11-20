@@ -36,22 +36,6 @@ const InfoSneakers = [
       },
     ],
   },
-  {
-    Id: 3,
-    SneakerName: "pa",
-    Sneaker3D: "3dModels/SneakerModel/NikeSneaker/scene.gltf",
-    LoaderParameters: {
-      size: 12,
-    },
-    Colors: [
-      {
-        Color: "blue",
-      },
-      {
-        Color: "green",
-      },
-    ],
-  },
 ];
 
 const SneakerColors = [
